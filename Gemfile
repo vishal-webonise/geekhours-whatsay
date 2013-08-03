@@ -26,7 +26,7 @@ group :development do
 end
 
 gem 'rb-readline','0.4.2'
-gem 'jquery-rails'
+gem 'jquery-rails', "3.0.4"
 gem 'haml','3.1.6'
 gem 'haml-rails','0.3.4'
 gem 'mongoid', '2.4.11'
@@ -34,5 +34,6 @@ gem 'mongo','1.6.2'
 gem 'term-colorizer', require: 'term-colorizer'
 gem 'httparty', '0.8.3'
 gem 'delayed_job_mongoid', '1.1.0'
-gem "zurb-foundation"
-gem "bson_ext"
+gem "zurb-foundation", "4.3.1"
+gem "bson_ext", "1.6.2"
+gem 'devise', "2.2.3"
