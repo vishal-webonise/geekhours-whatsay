@@ -1,0 +1,14 @@
+%row
+  .box.large.large-offset-2
+    = form_for(@poll, :url => poll_path(@poll),:html => {:class => "custom",:id => "tabCont_1", :method => :put} ) do |f|
+      %h2
+        #{@poll.topic}
+      %p
+        %strong Description:
+        #{@poll.description}
+      - option_type = @poll.multiple_ans ? "check_box" : "radio_button"
+      - @poll.field_options.each do |option|
+        %label{:for => ""}
+          = send("#{option_type}_tag", :option_field, option)
+          #{option}
+      = f.submit "Vote!", class: "button"

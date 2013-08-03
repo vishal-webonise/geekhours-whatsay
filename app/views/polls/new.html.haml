@@ -3,11 +3,12 @@
     %ul.no-bullet.switchForm
       %li.large-6
         %a{:href => "#"} Ask for Votes
-      %li.large-6
-        %a{:href => "#"} Ask for Suggestions
+      -#%li.large-6
+      -#  %a{:href => "#"} Ask for Suggestions
 .row
   .large-8.large-offset-2
-    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "tabCont_1",:remote=>true} ) do |f|
+    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "tabCont_1"} ) do |f|
+      = f.hidden_field :type, :value => "Vote"
       = f.text_field :topic, :placeholder=>"Topic"
       = f.text_area :description, :cols => "30", :rows => "10", :placeholder => "Description"
       -#%textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
@@ -19,7 +20,7 @@
         = options.text_field :option1,:placeholder=>"Enter option text here"
         .optionFields
           .addButton
-            %input{:type => "text", :placeholder=>"Enter option text here"}
+            %input{:type => "text", :name => "poll[field_options][option2]", :placeholder=>"Enter option text here"}
             %div
               %button.small.button.success.right.addMoreButton{:type => "button", :title => "Add More"}
                 +
@@ -30,6 +31,7 @@
           -#      &dash;
           -#   %button.small.button.success.right{:title => "Add More"}
           -#      +
+      %input.button.votePollSubmit.round{:type => "submit", :value => "Submit"}
 
     %form.custom.askForVotes#tabCont_2.tabDetails{:action => ""}
       %input{:type => "text", :placeholder=>"Topic"}
@@ -52,9 +54,9 @@
 
     var optionFieldsDiv = $('.optionFields');
     $(document).on('click', '.optionFields .addMoreButton', function(e) {
-      var i = $('.optionFields input[type=text]').size();
+      var i = $('.optionFields input[type=text]').size()+1;
       e.preventDefault();
-      $('<div class="addButton newAdded"><input type="text" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button></div></div>').appendTo(optionFieldsDiv);
+      $('<div class="addButton newAdded"><input type="text" name="poll[field_options][option'+ (i+1) +']" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button></div></div>').appendTo(optionFieldsDiv);
       // remove previous options' add/remove buttons
       $(this).siblings('.removeButton').remove();
       $(this).remove(); // removes current clicked addMoreButton
@@ -65,7 +67,7 @@
       e.preventDefault();
       console.log(i);
       if(i > 2) {
-        $(this).parent('.addButton').prev('.newAdded').append('<input type="text" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button>');
+        $(this).parent('.addButton').prev('.newAdded').append('<input name="poll[field_options][option'+ (i+1) +']" type="text" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button>');
         i--;
         $(this).parents('.newAdded').remove();
       }
@@ -73,5 +75,5 @@
         $(this).parent('.addButton').prev('.addButton').append('<input type="text" placeholder="Enter option text here"}<div><button class="small button success right addMoreButton" title="Add More" type="button">+</button>');
       }
       return false;
-    });
+    })
   });
