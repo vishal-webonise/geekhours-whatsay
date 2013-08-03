@@ -7,7 +7,7 @@
         %a{:href => "#"} Ask for Suggestions
 .row        
   .large-8.large-offset-2
-    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "promotionForm",:remote=>true} ) do |f|       
+    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "tabCont_1",:remote=>true} ) do |f|       
       = f.text_field :topic, :placeholder=>"Topic"      
       = f.text_area :description, :cols => "30", :rows => "10", :placeholder => "Description"
       -#%textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
@@ -18,7 +18,8 @@
       = f.fields_for :field_options do |options|
         = options.text_field :option1,:placeholder=>"Option 1"
       .addButton
-        %input{:type => "text", :placeholder=>"Option 2"}
+        -#%input{:type => "text", :placeholder=>"Option 2"}
+        = options.text_field :option2,:placeholder=>"Option 2"
         %div
           %button.small.button.success.right{:title => "Add More"}
             +

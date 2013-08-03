@@ -3,7 +3,7 @@ class Answer
   include Mongoid::Timestamps
 
   #associations
-  embedded_in :vote_poll
+  embedded_in :poll
   #attr_accessible
   attr_accessible :choice, :user_id
 
