@@ -12,9 +12,6 @@ Whatsay::Application.routes.draw do
   resources :polls
 
   root to: 'pages#index'
-
-  resources :polls do
-  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

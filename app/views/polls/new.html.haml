@@ -1,21 +1,22 @@
 .row 
   .large-8.large-offset-2
-    %ul.no-bullet.switchForm.tabs 
+    %ul.no-bullet.switchForm 
       %li.large-6 
         %a{:href => "#"} Ask for Votes
       %li.large-6 
         %a{:href => "#"} Ask for Suggestions
 .row        
   .large-8.large-offset-2
-    %form.custom.askForVotes#tabCont_1.tabDetails{:action => ""} 
-    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "form-horizontal",:id => "promotionForm",:remote=>true} ) do |f|
-      %input{:type => "text", :placeholder=>"Topic"}
-      %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
+    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "promotionForm",:remote=>true} ) do |f|       
+      = f.text_field :topic, :placeholder=>"Topic"      
+      = f.text_area :description, :cols => "30", :rows => "10", :placeholder => "Description"
+      -#%textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
       %label{:for => "checkbox1"}
-        %input#checkbox1{:style => "display: none;", :type => "checkbox"}
-        %span.custom.checkbox
         Multiple Answers
-      %input{:type => "text", :placeholder=>"Option 1"}
+        = f.check_box :multiple_ans, :checked => false
+      -#%input{:type => "text", :placeholder=>"Option 1"}
+      = f.fields_for :field_options do |options|
+        = options.text_field :option1,:placeholder=>"Option 1"
       .addButton
         %input{:type => "text", :placeholder=>"Option 2"}
         %div
@@ -23,7 +24,7 @@
             +
       .addButton.newAdded
         %input{:type => "text", :placeholder=>"Option 3"}
-        %div{:style => "clear:both;"}
+        %div
           %button.small.button.alert.right{:title => "Remove This"}
             &dash;
           %button.small.button.success.right{:title => "Add More"}
