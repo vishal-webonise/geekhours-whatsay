@@ -21,7 +21,8 @@ header
     margin-left: 5px
 
 .addButton
-  input
+  input,
+  textarea
     margin-bottom: 0
 
 .tabDetails
@@ -35,7 +36,14 @@ header
   +block
 
 .clearfix
-  clear: both
+  *zoom: 1
+  &:before
+  &:after
+    display: table
+    content: ""
+    line-height: 0
+  &:after
+    clear: both
 
 
 .box

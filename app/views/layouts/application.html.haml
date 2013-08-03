@@ -13,6 +13,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : "Untitled"
     = stylesheet_link_tag "application", "foundation", "style"
+    = javascript_include_tag "jquery.min.js"
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
   %body
@@ -29,5 +30,4 @@
           = msg if msg.is_a?(String)
       = yield
     = javascript_include_tag "application"
-    = javascript_include_tag "http://code.jquery.com/jquery-1.8.0.min.js"
     = javascript_include_tag "frontend"

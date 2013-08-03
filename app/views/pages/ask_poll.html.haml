@@ -7,8 +7,7 @@
         %a{:href => "#"} Ask for Suggestions
 .row        
   .large-8.large-offset-2
-    %form.custom.askForVotes#tabCont_1.tabDetails{:action => ""} 
-    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "form-horizontal",:id => "promotionForm",:remote=>true} ) do |f|
+    %form.custom.askForVotes#tabCont_1.tabDetails{:action => ""}
       %input{:type => "text", :placeholder=>"Topic"}
       %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
       %label{:for => "checkbox1"}
@@ -16,18 +15,19 @@
         %span.custom.checkbox
         Multiple Answers
       %input{:type => "text", :placeholder=>"Option 1"}
-      .addButton
-        %input{:type => "text", :placeholder=>"Option 2"}
-        %div
-          %button.small.button.success.right{:title => "Add More"}
-            +
-      .addButton.newAdded
-        %input{:type => "text", :placeholder=>"Option 3"}
-        %div{:style => "clear:both;"}
-          %button.small.button.alert.right{:title => "Remove This"}
-            &dash;
-          %button.small.button.success.right{:title => "Add More"}
-            +
+      .addHere
+        .addButton
+          %input{:type => "text", :placeholder=>"Option 2"}
+          .clearfix
+            %a.small.button.success.right.addMore{:href => "#"} +
+      -# .addButton.newAdded
+      -#   %input{:type => "text", :placeholder=>"Option 3"}
+      -#   %div.clearfix
+      -#     %button.small.button.alert.right{:title => "Remove This"}
+      -#       &dash;
+      -#     %button.small.button.success.right{:title => "Add More"}
+      -#       +
+      %input.button.round{:type => "submit", :value => "Submit"} 
 
     %form.custom.askForVotes#tabCont_2.tabDetails{:action => ""} 
       %input{:type => "text", :placeholder=>"Topic"}
@@ -39,8 +39,10 @@
             +
       .addButton.newAdded
         %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Add Suggestion"}
-        %div
+        .clearfix
           %button.small.button.alert.right{:title => "Remove This"}
             &dash;
           %button.small.button.success.right{:title => "Add More"}
             +
+      %input.button.round{:type => "submit", :value => "Submit"} 
+  
