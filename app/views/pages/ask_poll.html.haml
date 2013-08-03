@@ -1,6 +1,6 @@
 .row 
   .large-8.large-offset-2
-    %ul.no-bullet.switchForm 
+    %ul.no-bullet.switchForm.tabs 
       %li.large-6 
         %a{:href => "#"} Ask for Votes
       %li.large-6 
@@ -22,7 +22,7 @@
             +
       .addButton.newAdded
         %input{:type => "text", :placeholder=>"Option 3"}
-        %div
+        %div{:style => "clear:both;"}
           %button.small.button.alert.right{:title => "Remove This"}
             &dash;
           %button.small.button.success.right{:title => "Add More"}

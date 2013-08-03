@@ -26,9 +26,16 @@ header
 
 .tabDetails
   +hidden
+  padding: 20px
+  border: 1px solid #2ba6cb
+  border-top: 0
+
 
 #tabCont_1
   +block
+
+.clearfix
+  clear: both
 
 
 .box
@@ -42,7 +49,7 @@ header
 .tabs
   height: auto
   overflow: auto
-  margin: 0
+  margin: 15px 0 0 0
 
 .topPolls, .currentPolls
   border: 1px solid #888
@@ -85,5 +92,19 @@ header
   height: auto
   overflow: auto
 
-.box strong
-  margin-right: 27px
+.box
+  strong
+    margin-right: 27px
+    float: left
+  em
+    float: left
+
+
+.stars
+  float: right
+  li
+    background: url(star.png) no-repeat !important
+    height: 15px
+    width: 15px
+    float: right
+
