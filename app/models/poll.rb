@@ -12,12 +12,13 @@ class Poll
   embeds_many :answers
 
   #attr_accessible
-  attr_accessible :topic,:description,:type, :field_options,:answers_count,:updated_at
+
+  attr_accessible :topic,:description,:type, :field_options,:answers_count,:updated_at, :multiple_ans
 
   #fields
   field :topic,          :type => String
   field :description,    :type => String
-  field :type,           :type => String 
+  field :type,           :type => String
   field :field_options,  :type=> Array,    :default=> []
   field :multiple_ans,   :type => Boolean,:default=>false
   field :answers_count,   :type => Integer,:default=>0 
