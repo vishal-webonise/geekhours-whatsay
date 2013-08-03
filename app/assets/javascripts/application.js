@@ -16,4 +16,3 @@
 //= require underscore-min
 //= require_tree .
 
-$(function(){ $(document).foundation(); });

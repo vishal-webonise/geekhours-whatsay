@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def after_login
   end
+
+  def ask_poll
+  end  
 end
