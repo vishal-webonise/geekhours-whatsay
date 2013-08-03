@@ -17,12 +17,16 @@
     = csrf_meta_tags
   %body
     %header
-      .row 
+      .row
         %large-12.columns
-          %a{:href => "#"} 
+          %a{:href => "#"}
             = image_tag("logoOLD.png")
-    .row 
-      %large-12.columns    
+    .row
+      %large-12.columns
+      - flash.each do |name, msg|
+        %div{"data-alert" => "true", :class => "alert-box #{name == :notice ? "success" : "alert"}",:id => "notice_box"}
+          %a.close{:href => "#"} &times;
+          = msg if msg.is_a?(String)
       = yield
     = javascript_include_tag "application"
     = javascript_include_tag "http://code.jquery.com/jquery-1.8.0.min.js"

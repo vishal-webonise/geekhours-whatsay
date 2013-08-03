@@ -37,3 +37,5 @@ gem 'delayed_job_mongoid', '1.1.0'
 gem "zurb-foundation", "4.3.1"
 gem "bson_ext", "1.6.2"
 gem 'devise', "2.2.3"
+# gem 'client_side_validations'
+# gem 'client_side_validations-mongoid'
