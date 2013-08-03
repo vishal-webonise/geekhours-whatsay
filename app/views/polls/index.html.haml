@@ -12,73 +12,30 @@
       %a.createNew{:href => "#"} 
         Create a new poll
       %ul
-        %li
-          %span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 80%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 60%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
+        - @my_polls.each do |my_poll|
+          %li
+            %a.pollQuestion{:href => "/polls/#{my_poll.id}"} #{my_poll.topic}
+            / %span.pollQuestion Top Polling Question
+            - my_poll.field_options.each do |poll_option| 
+              %strong poll_option 
+              %strong 1 
+            %ul.stars
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
     .topPolls.tabDetails#tabCont_2
       %h5 top polls
       %ul
         %li
-          %span.pollQuestion Top Polling Question
+          %a{:href => "#",:class=>"pollQuestion"} 
+            -#%span.pollQuestion Top Polling Question
           %strong Yes
           %strong No
           %em 80%
@@ -92,107 +49,16 @@
             %li
               %a{:href => "#"} 
             %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 60%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
+              %a{:href => "#"}
     .currentPolls.tabDetails#tabCont_3
       %h5 Current polls
       %ul
         %li
-          %span.pollQuestion Top Polling Question
+          %a{:href => "#"} Top Polling Question
+          -#%span.pollQuestion Top Polling Question
           %strong Yes
           %strong No
           %em 80%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 60%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-        %li
-          %span.pollQuestion
-            %a{:href => ""} Top Polling Suggestion
-          %strong 70
           %ul.stars
             %li
               %a{:href => "#"} 

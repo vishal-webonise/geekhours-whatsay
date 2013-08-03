@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   def index
-
+    @my_polls = current_user.polls
+    @top_polls = Poll.top_polls
+    @latest_polls = Poll.latest_polls
   end
 
   def new
