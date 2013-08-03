@@ -9,16 +9,16 @@
         %a{:href => ""} Current Polls
     .topPolls.tabDetails#tabCont_1
       %h5 My Polls
-      %a.createNew{:href => "#"} 
+      %a.createNew{:href => "/polls/new"} 
         Create a new poll
       %ul
         - @my_polls.each do |my_poll|
           %li
             %a.pollQuestion{:href => "/polls/#{my_poll.id}"} #{my_poll.topic}
-            / %span.pollQuestion Top Polling Question
+            -#%span.pollQuestion Top Polling Question
             - my_poll.field_options.each do |poll_option| 
-              %strong poll_option 
-              %strong 1 
+              %strong #{poll_option}
+              %strong #{my_poll.answers.where(:choice=>poll_option).to_a.size}
             %ul.stars
               %li
                 %a{:href => "#"} 
@@ -33,40 +33,42 @@
     .topPolls.tabDetails#tabCont_2
       %h5 top polls
       %ul
-        %li
-          %a{:href => "#",:class=>"pollQuestion"} 
+        - @top_polls.each do |top_poll|
+          %li
+            %a.pollQuestion{:href => "/polls/#{top_poll.id}"} #{top_poll.topic}
             -#%span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 80%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"}
+            - top_poll.field_options.each do |poll_option| 
+              %strong #{poll_option}
+              %strong #{top_poll.answers.where(:choice=>poll_option).to_a.size}            
+            %ul.stars
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"}
     .currentPolls.tabDetails#tabCont_3
       %h5 Current polls
       %ul
-        %li
-          %a{:href => "#"} Top Polling Question
-          -#%span.pollQuestion Top Polling Question
-          %strong Yes
-          %strong No
-          %em 80%
-          %ul.stars
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
-            %li
-              %a{:href => "#"} 
+        - @latest_polls.each do |latest_poll|
+          %li
+            %a.pollQuestion{:href => "/polls/#{latest_poll.id}"} #{latest_poll.topic}
+            -#%span.pollQuestion Top Polling Question            
+            - latest_poll.field_options.each do |poll_option| 
+              %strong #{poll_option}
+              %strong #{latest_poll.answers.where(:choice=>poll_option).to_a.size} 
+            %ul.stars
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 
+              %li
+                %a{:href => "#"} 

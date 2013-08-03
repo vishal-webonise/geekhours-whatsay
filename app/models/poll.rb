@@ -36,11 +36,11 @@ class Poll
   end
 
   def self.top_polls
-    Poll.all.sort_by{|poll| - poll.answers_count}
+    Poll.all.sort_by{|poll| poll.answers_count}
   end
 
   def self.latest_polls
-    Poll.all.sort_by{|poll| - poll.updated_at.to_i}
+    Poll.all.sort_by{|poll| poll.updated_at.to_i}
   end
   # def save_count
   #   write_attribute(:answers_count, self.answers.size) 
