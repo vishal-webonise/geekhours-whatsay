@@ -5,7 +5,8 @@ class SuggestionPoll
   #associations
   belongs_to :poll 
   #attr_accessible
-  #attr_accessible 
-  
+  attr_accessible :field_options
 
+  
+  field :field_options,    :type=> Array,    :default=> []
 end
