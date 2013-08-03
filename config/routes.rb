@@ -2,10 +2,10 @@ Whatsay::Application.routes.draw do
 
   # devise_for :users
   devise_for :users,:path_names => {:sign_in => "login", :sign_out => "logout"} , :controllers => {:registrations => "registrations", :confirmations => "confirmations"} do
-    get '/logout', :to => "devise/cas_sessions#destroy", :as => :destroy_user_session
-    get '/login', :to => "devise/cas_sessions#new", :as => :new_user_session
-    get '/sign_up' => 'registrations#new', :as => :new_user_registration
-    post'/sign_up' => 'registrations#create', :as => :user_registration
+    get '/logout', :to => "devise/sessions#destroy", :as => :destroy_user_session
+    get '/login', :to => "devise/sessions#new", :as => :new_user_session
+    get '/sign_up' => 'devise/registrations#new', :as => :new_user_registration
+    post'/sign_up' => 'devise/registrations#create', :as => :user_registration
   end
 
   root to: 'pages#index'
