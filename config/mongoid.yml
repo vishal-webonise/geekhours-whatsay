@@ -1,0 +1,32 @@
+development:
+  host: localhost
+  database: whatsay_development
+
+staging:
+  host: localhost
+  database: whatsay_development
+
+test:
+  host: localhost
+  database: whatsay_test
+
+production:
+  host: localhost
+  database: whatsay_production
+#  hosts:
+#    - - 10.166.45.154:27017
+#    - - 10.154.139.195:27017
+#  read: :secondary
+## set these environment variables on your prod server
+#production:
+#  host: <%= ENV['MONGOID_HOST'] %>
+#  port: <%= ENV['MONGOID_PORT'] %>
+#  username: <%= ENV['MONGOID_USERNAME'] %>
+#  password: <%= ENV['MONGOID_PASSWORD'] %>
+#  database: <%= ENV['MONGOID_DATABASE'] %>
+#  uri: <%= ENV['MONGOHQ_URL'] %>
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
