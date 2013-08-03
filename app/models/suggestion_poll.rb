@@ -7,6 +7,6 @@ class SuggestionPoll
   #attr_accessible
   attr_accessible :field_options
 
-  
-  field :field_options,    :type=> Array,    :default=> []
+
+  #field :field_options,    :type=> Array,    :default=> []
 end

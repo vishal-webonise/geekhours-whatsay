@@ -8,6 +8,7 @@
 .row        
   .large-8.large-offset-2
     %form.custom.askForVotes#tabCont_1.tabDetails{:action => ""} 
+    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "form-horizontal",:id => "promotionForm",:remote=>true} ) do |f|
       %input{:type => "text", :placeholder=>"Topic"}
       %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
       %label{:for => "checkbox1"}
