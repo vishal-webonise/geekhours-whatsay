@@ -2,25 +2,61 @@
   Welcome to WhatSay?
 %h4
   The act of smelling something, anything, is remarkably like the act of thinking. Immediately at the moment of perception, you can feel the mind going to work, sending the odor around from place to place, setting off complex repertories through the brain, polling one center after another for signs of re recognition, for old memories and old connection
-.row 
+.row
   .large-6.columns
-    %h5 
-      %a{:href => "#"} 
+    %h5
+      %a{:href => "#"}
         Login
     .login-form
-      %form
-        %input{:type => "text", :value => "enter the user id"}/
-        %input{:type => "text", :value => "enter the password"}/
-        %input.button{:type => "submit"}/
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name), :validate => true, :html => { :id => "login_form" }) do |f|
+        %label.control-label{:for => "user_email"}
+        = f.email_field :email, :placeholder => "Email"
+        %label.control-label{:for => "user_password"}
+        = f.password_field :password, :placeholder => "Password"
+        = f.submit "Login", :class => "button"
 
   .large-6.columns
-    %h5 
-      %a{:href => "#"} 
+    %h5
+      %a{:href => "#"}
         Register
     .signup-form
-      %form
-        %input{:type => "text", :value => "enter your first name"}/
-        %input{:type => "text", :value => "enter your last name"}/
-        %input{:type => "text", :value => "Choose your password"}/
-        %input{:type => "text", :value => "Confirm Password"}/
-        %input.button{:type => "submit"}/
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f|
+        = f.text_field :first_name, :placeholder => "First Name"
+        = f.text_field :last_name, :placeholder => "Last Name"
+        = f.email_field :email, :placeholder => "Email"
+        = f.password_field :password, :placeholder => "Password"
+        = f.password_field :password_confirmation, :placeholder => "Confirm Password"
+        = f.submit "Sign Up", :class => "button"
+
+:javascript
+  $(document).ready(function(){
+    $('#login_form').validate({
+      rules: {
+        user_email: {
+          required: true,
+          email: true
+        },
+        user_password: "required"
+      }
+    });
+
+    $('#new_user').validate({
+      rules: {
+        user_first_name: {
+          require: true,
+          minLength: 2,
+          maxLength: 20
+        },
+        user_last_name: {
+          require: true,
+          maxLength: 20
+        },
+        user_email: {
+          required: true,
+          email: true
+        },
+        user_password: "required",
+        user_password_confirmation: "required"
+      }
+    });
+  });

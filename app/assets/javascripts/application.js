@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require underscore-min
+//= require jquery.validate.min
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

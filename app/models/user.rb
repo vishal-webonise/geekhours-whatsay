@@ -39,4 +39,10 @@ class User
   # field :authentication_token, :type => String
   field :first_name, :type => String
   field :last_name, :type => String
+
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :email
+  validates_presence_of :password
+  validates_presence_of :password_confirmation
 end
