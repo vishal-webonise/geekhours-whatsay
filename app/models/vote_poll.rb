@@ -6,7 +6,7 @@ class VotePoll
   belongs_to :poll 
   embeds_many :answers
   #attr_accessible
-  #attr_accessible 
+  attr_accessible :multiple_ans, :field_options
 
   #fields
   field :multiple_ans,    :type => Boolean,:default=>false
