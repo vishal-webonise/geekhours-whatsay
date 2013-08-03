@@ -9,6 +9,8 @@
         %a{:href => ""} Current Polls
     .topPolls.tabDetails#tabCont_1
       %h5 My Polls
+      %a.createNew{:href => "#"} 
+        Create a new poll
       %ul
         - @my_polls.each do |my_poll|
           %li
