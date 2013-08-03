@@ -1,9 +1,11 @@
 .row
   .box.large-10.large-offset-1
     %ul.tabs
-      %li.large-6.columns
+      %li.large-4.columns
+        %a{:href => ""} My Polls
+      %li.large-4.columns
         %a{:href => ""} Top Polls
-      %li.large-6.columns
+      %li.large-4.columns
         %a{:href => ""} Current Polls
     .topPolls
       %h5 top polls
@@ -13,19 +15,43 @@
           %strong Yes
           %strong No
           %em 80%
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
         %li
           %span.pollQuestion
             %a{:href => ""} Top Polling Suggestion
           %strong 70
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
         %li
           %span.pollQuestion Top Polling Question
           %strong Yes
           %strong No
           %em 60%
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
         %li
           %span.pollQuestion
             %a{:href => ""} Top Polling Suggestion
           %strong 70
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
     .currentPolls{:style => "display: none;"}
       %h5 Current polls
       %ul
@@ -34,6 +60,12 @@
           %strong Yes
           %strong No
           %em 80%
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
         %li
           %span.pollQuestion
             %a{:href => ""} Top Polling Suggestion
@@ -47,3 +79,9 @@
           %span.pollQuestion
             %a{:href => ""} Top Polling Suggestion
           %strong 70
+          %ul.stars
+            %li
+            %li
+            %li
+            %li
+            %li
