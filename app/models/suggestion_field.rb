@@ -10,4 +10,13 @@ class SuggestionField
   #fields
   field :fields,    :type => Hash,:default=>{}
   field :user_id,   :type => BSON::ObjectId  
+
+    #callbacks
+  after_create :update_answers_count
+
+  def update_answers_count
+    #write_attribute(:answers_count, self.answers.size) 
+    Poll.collection.update( {'_id' => self._parent._id}, 
+                              {'$inc' => {'answers_count' => 1}},{:updated_at=>Time.now.utc} )
+  end
 end
