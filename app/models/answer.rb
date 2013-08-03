@@ -5,9 +5,9 @@ class Answer
   #associations
   embedded_in :vote_poll
   #attr_accessible
-  attr_accessible :choice
+  attr_accessible :choice, :user_id
 
   #fields
   field :choice,    :type => String
-  field :user_id,   :type => BSON::ObjectId  
+  field :user_id,   :type => BSON::ObjectId
 end
