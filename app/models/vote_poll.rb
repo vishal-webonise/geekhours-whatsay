@@ -4,10 +4,11 @@ class VotePoll
 
   #associations
   belongs_to :poll 
+  embeds_many :answers
   #attr_accessible
   #attr_accessible 
 
   #fields
-  fields :multiple_ans,    :type => Boolean,:default=>false
-  field :options,   		   :type=> Hash,    :default=> {}
+  field :multiple_ans,    :type => Boolean,:default=>false
+  field :field_options,    :type=> Array,    :default=> []
 end

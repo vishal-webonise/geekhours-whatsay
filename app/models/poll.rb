@@ -7,12 +7,14 @@ class Poll
   has_one :suggestion_poll, :dependent => :destroy
   has_one :vote_poll, :dependent => :destroy
   #attr_accessible
-  attr_accessible :topic
+  attr_accessible :topic,:description,:type
 
   #fields
   field :topic,          :type => String
   field :description,    :type => String
   field :type,           :type => String 
+
+  #options => array [{option_value => "Yes", votes: "0"}, {}, {}]
 
   #validations
   validates :topic, :presence => true
