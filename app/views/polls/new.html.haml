@@ -1,14 +1,14 @@
-.row 
+.row
   .large-8.large-offset-2
-    %ul.no-bullet.switchForm 
-      %li.large-6 
+    %ul.no-bullet.switchForm
+      %li.large-6
         %a{:href => "#"} Ask for Votes
-      %li.large-6 
+      %li.large-6
         %a{:href => "#"} Ask for Suggestions
-.row        
+.row
   .large-8.large-offset-2
-    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "promotionForm",:remote=>true} ) do |f|       
-      = f.text_field :topic, :placeholder=>"Topic"      
+    = form_for(@poll, :url => polls_path(@poll),:html => {:class => "custom",:id => "promotionForm",:remote=>true} ) do |f|
+      = f.text_field :topic, :placeholder=>"Topic"
       = f.text_area :description, :cols => "30", :rows => "10", :placeholder => "Description"
       -#%textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
       %label{:for => "checkbox1"}
@@ -16,32 +16,62 @@
         = f.check_box :multiple_ans, :checked => false
       -#%input{:type => "text", :placeholder=>"Option 1"}
       = f.fields_for :field_options do |options|
-        = options.text_field :option1,:placeholder=>"Option 1"
-      .addButton
-        %input{:type => "text", :placeholder=>"Option 2"}
-        %div
-          %button.small.button.success.right{:title => "Add More"}
-            +
-      .addButton.newAdded
-        %input{:type => "text", :placeholder=>"Option 3"}
-        %div
-          %button.small.button.alert.right{:title => "Remove This"}
-            &dash;
-          %button.small.button.success.right{:title => "Add More"}
-            +
+        = options.text_field :option1,:placeholder=>"Enter option text here"
+        .optionFields
+          .addButton
+            %input{:type => "text", :placeholder=>"Enter option text here"}
+            %div
+              %button.small.button.success.right.addMoreButton{:type => "button", :title => "Add More"}
+                +
+          -#.addButton.newAdded
+          -#  %input{:type => "text", :placeholder=>"Option 3"}
+          -#  %div
+          -#    %button.small.button.alert.right{:title => "Remove This"}
+          -#      &dash;
+          -#   %button.small.button.success.right{:title => "Add More"}
+          -#      +
 
-    %form.custom.askForVotes#tabCont_2.tabDetails{:action => ""} 
+    %form.custom.askForVotes#tabCont_2.tabDetails{:action => ""}
       %input{:type => "text", :placeholder=>"Topic"}
       %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
       .addButton
         %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Add Suggestion"}
         %div
-          %button.small.button.success.right{:title => "Add More"}
+          %button.small.button.success.right{:type => "button", :title => "Add More"}
             +
       .addButton.newAdded
         %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Add Suggestion"}
         %div
-          %button.small.button.alert.right{:title => "Remove This"}
+          %button.small.button.alert.right{:type => "button", :title => "Remove This"}
             &dash;
-          %button.small.button.success.right{:title => "Add More"}
+          %button.small.button.success.right{:type => "button", :title => "Add More"}
             +
+
+:javascript
+  $(document).ready(function(){
+
+    var optionFieldsDiv = $('.optionFields');
+    $(document).on('click', '.optionFields .addMoreButton', function(e) {
+      var i = $('.optionFields input[type=text]').size();
+      e.preventDefault();
+      $('<div class="addButton newAdded"><input type="text" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button></div></div>').appendTo(optionFieldsDiv);
+      // remove previous options' add/remove buttons
+      $(this).siblings('.removeButton').remove();
+      $(this).remove(); // removes current clicked addMoreButton
+      i++;
+      return false;
+    }).on('click', '.removeButton', function(e) {
+      var i = $('.optionFields input[type=text]').size() + 1;
+      e.preventDefault();
+      console.log(i);
+      if(i > 2) {
+        $(this).parent('.addButton').prev('.newAdded').append('<input type="text" placeholder="Enter option text here"}<div><button class="small button alert right removeButton" title="Remove This" type="button">&dash;</button><button class="small button success right addMoreButton" title="Add More" type="button">+</button>');
+        i--;
+        $(this).parents('.newAdded').remove();
+      }
+      else if(i == 2) {
+        $(this).parent('.addButton').prev('.addButton').append('<input type="text" placeholder="Enter option text here"}<div><button class="small button success right addMoreButton" title="Add More" type="button">+</button>');
+      }
+      return false;
+    });
+  });
