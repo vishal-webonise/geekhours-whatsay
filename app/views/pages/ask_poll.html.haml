@@ -1,0 +1,45 @@
+.row 
+  .large-8.large-offset-2
+    %ul.no-bullet.switchForm 
+      %li.large-6 
+        %a{:href => "#"} Ask for Votes
+      %li.large-6 
+        %a{:href => "#"} Ask for Suggestions
+.row        
+  .large-8.large-offset-2
+    %form.custom.askForVotes#tabCont_1.tabDetails{:action => ""} 
+      %input{:type => "text", :placeholder=>"Topic"}
+      %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
+      %label{:for => "checkbox1"}
+        %input#checkbox1{:style => "display: none;", :type => "checkbox"}
+        %span.custom.checkbox
+        Multiple Answers
+      %input{:type => "text", :placeholder=>"Option 1"}
+      .addButton
+        %input{:type => "text", :placeholder=>"Option 2"}
+        %div
+          %button.small.button.success.right{:title => "Add More"}
+            +
+      .addButton.newAdded
+        %input{:type => "text", :placeholder=>"Option 3"}
+        %div
+          %button.small.button.alert.right{:title => "Remove This"}
+            &dash;
+          %button.small.button.success.right{:title => "Add More"}
+            +
+
+    %form.custom.askForVotes#tabCont_2.tabDetails{:action => ""} 
+      %input{:type => "text", :placeholder=>"Topic"}
+      %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Description"}
+      .addButton
+        %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Add Suggestion"}
+        %div
+          %button.small.button.success.right{:title => "Add More"}
+            +
+      .addButton.newAdded
+        %textarea{:name => "", :cols => "30", :rows => "10", :placeholder => "Add Suggestion"}
+        %div
+          %button.small.button.alert.right{:title => "Remove This"}
+            &dash;
+          %button.small.button.success.right{:title => "Add More"}
+            +

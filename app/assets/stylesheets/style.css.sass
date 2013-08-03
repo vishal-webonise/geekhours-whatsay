@@ -1,5 +1,89 @@
 @import mixins
 
+$baseBG : #eef3fa
+
+
 header
-  background-color: #eef3fa
+  background-color: $baseBG
   +box-shadow (0 4px 2px -2px gray)
+
+.switchForm
+  li
+    +pullLeft
+    +textCenter
+
+.askForVotes
+  label
+    +textRight
+    margin-bottom: 10px
+  .custom
+    +pullRight
+    margin-left: 5px
+
+.addButton
+  input
+    margin-bottom: 0
+
+.tabDetails
+  +hidden
+
+#tabCont_1
+  +block
+
+
+.box
+  box-shadow: 2px 2px 2px #ddd
+  li
+    list-style: none
+    padding: 10px
+    height: auto
+    overflow: hidden
+
+.tabs
+  height: auto
+  overflow: auto
+  margin: 0
+
+.topPolls, .currentPolls
+  border: 1px solid #888
+  border-top: none
+
+.tabs li
+  border: 1px solid #2ba6cb
+  padding: 5px
+  text-align: center
+  font-weight: bold
+  background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
+  // FF3.6+
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
+  // Chrome,Safari4+
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
+  // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%)
+  // Opera 11.10+
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%)
+  // IE10+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
+  // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 )
+  // IE6-9
+
+.box h5
+  text-transform: capitalize
+  color: #2ba6cb
+  padding: 15px 20px 0
+  margin: 0
+
+.topPolls ul li:nth-child(even)
+  background: #cccccc
+
+.pollQuestion
+  margin: 0 10px
+  float: left
+  display: block
+  width: 60%
+  height: auto
+  overflow: auto
+
+.box strong
+  margin-right: 27px
