@@ -10,6 +10,12 @@ class PagesController < ApplicationController
 
   def ask_poll
   end  
+  
+  def the_poll
+  end  
+    
+  def suggestions
+  end  
 
   private
   def send_signed_in_user_to_polls
