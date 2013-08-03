@@ -3,10 +3,13 @@ Whatsay::Application.routes.draw do
   # devise_for :users
   devise_for :users,:path_names => {:sign_in => "login", :sign_out => "logout"} , :controllers => {:registrations => "registrations", :confirmations => "confirmations"} do
     get '/logout', :to => "devise/sessions#destroy", :as => :destroy_user_session
-    get '/login', :to => "devise/sessions#new", :as => :new_user_session
+    get '/login', :to => "pages#index", :as => :new_user_session
+    # get '/users/login', :to => "pages#index", :as => :new_user_session
     get '/sign_up' => 'devise/registrations#new', :as => :new_user_registration
     post'/sign_up' => 'devise/registrations#create', :as => :user_registration
   end
+
+  resources :polls
 
   root to: 'pages#index'
 
