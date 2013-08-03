@@ -29,9 +29,26 @@ Whatsay::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  config.action_mailer.default_url_options = {:host => "local.whatsay.com"}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'mail.weboniselab.com',
+    :user_name            => 'pansingh@weboniselab.com',
+    :password             => 'pansingh6186',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+
+  config.assets.logger = nil
+  config.assets.digest = false
+
   # Do not compress assets
   config.assets.compress = false
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Constants
+  SITE_ROOT_URL = "local.whatsay.com"
 end
