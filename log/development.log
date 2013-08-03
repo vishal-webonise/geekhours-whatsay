@@ -4,3 +4,83 @@ MONGODB [DEBUG] Logging level is currently :debug which could negatively impact 
 MONGODB (58ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
 MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
 MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-03 16:18:53 +0530
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.haml within layouts/application (1.1ms)
+Completed 500  in 978ms
+
+ActionView::Template::Error (Illegal nesting: content can't be both given on the same line as %h1 and nested within it.):
+    1: %h1 What
+    2:   %small Say?
+  app/views/pages/index.html.haml:2
+
+
+  Rendered /home/vishal/.rvm/gems/ruby-1.9.3-p194@rails3tutorial2ndEd/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.3ms)
+  Rendered /home/vishal/.rvm/gems/ruby-1.9.3-p194@rails3tutorial2ndEd/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /home/vishal/.rvm/gems/ruby-1.9.3-p194@rails3tutorial2ndEd/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (83.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-03 16:19:15 +0530
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.haml within layouts/application (1.4ms)
+Completed 401 Unauthorized in 53486ms
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-03 16:20:47 +0530
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.haml within layouts/application (1.6ms)
+Completed 401 Unauthorized in 46073ms
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-03 16:22:08 +0530
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.haml within layouts/application (1.6ms)
+Compiled foundation_and_overrides.css  (59479ms)  (pid 27608)
+Compiled application.css  (59682ms)  (pid 27608)
+Compiled vendor/custom.modernizr.js  (1ms)  (pid 27608)
+Compiled jquery.js  (3ms)  (pid 27608)
+Compiled jquery_ujs.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.js  (2ms)  (pid 27608)
+Compiled foundation/foundation.alerts.js  (2ms)  (pid 27608)
+Compiled foundation/foundation.clearing.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.cookie.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.dropdown.js  (2ms)  (pid 27608)
+Compiled foundation/foundation.forms.js  (2ms)  (pid 27608)
+Compiled foundation/foundation.joyride.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.magellan.js  (3ms)  (pid 27608)
+Compiled foundation/foundation.orbit.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.reveal.js  (2ms)  (pid 27608)
+Compiled foundation/foundation.section.js  (3ms)  (pid 27608)
+Compiled foundation/foundation.tooltips.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.topbar.js  (3ms)  (pid 27608)
+Compiled foundation/foundation.interchange.js  (3ms)  (pid 27608)
+Compiled foundation/foundation.placeholder.js  (1ms)  (pid 27608)
+Compiled foundation/foundation.abide.js  (1ms)  (pid 27608)
+Compiled foundation/index.js  (3616ms)  (pid 27608)
+Compiled underscore-min.js  (1ms)  (pid 27608)
+Compiled application.js  (4407ms)  (pid 27608)
+Completed 200 OK in 66822ms (Views: 66822.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-03 16:23:19 +0530
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 616ms (Views: 615.9ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/blah" for 127.0.0.1 at 2013-08-03 16:32:21 +0530
+Processing by PagesController#blah as HTML
+  Rendered pages/blah.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 2657ms (Views: 2656.3ms)
