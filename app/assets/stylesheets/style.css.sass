@@ -60,8 +60,9 @@ header
   margin: 15px 0 0 0
 
 .topPolls, .currentPolls
-  border: 1px solid #888
+  border: 1px solid #2ba6cb
   border-top: none
+  margin-top: -1px
 
 .tabs li
   border: 1px solid #2ba6cb
@@ -69,28 +70,25 @@ header
   text-align: center
   font-weight: bold
   background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
-  // FF3.6+
   background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
-  // Chrome,Safari4+
   background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
-  // Chrome10+,Safari5.1+
   background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%)
-  // Opera 11.10+
   background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%)
-  // IE10+
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 92%)
-  // W3C
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 )
-  // IE6-9
-
+  &.selected
+    background: #fff
+    border-bottom: 0px
+    a
+      color: red
 .box h5
   text-transform: capitalize
   color: #2ba6cb
   padding: 15px 20px 0
   margin: 0
 
-.topPolls ul li:nth-child(even)
-  background: #cccccc
+// .topPolls ul li:nth-child(even)
+//   background: #cccccc
 
 .pollQuestion
   margin: 0 10px
@@ -111,8 +109,16 @@ header
 .stars
   float: right
   li
-    background: url(star.png) no-repeat !important
-    height: 15px
-    width: 15px
-    float: right
+    +pullLeft
+    padding: 0
+    background: none
+    a
+      width: 20px
+      height: 20px
+      +block
+      background: url(star.png) 0 0 no-repeat
+      &:hover,
+      &.active,
+      &.rated
+        background-position: 0 -20px
 
