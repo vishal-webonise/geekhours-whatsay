@@ -3,12 +3,12 @@ class VotePoll
   include Mongoid::Timestamps
 
   #associations
-  belongs_to :poll 
-  embeds_many :answers
+  #belongs_to :poll 
+  #embeds_many :answers
   #attr_accessible
-  attr_accessible :multiple_ans, :field_options
+  #attr_accessible :multiple_ans, :field_options
 
   #fields
-  field :multiple_ans,    :type => Boolean,:default=>false
-  field :field_options,    :type=> Array,    :default=> []
+  #field :multiple_ans,    :type => Boolean,:default=>false
+  #field :field_options,    :type=> Array,    :default=> []
 end

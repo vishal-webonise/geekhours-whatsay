@@ -3,7 +3,7 @@ class SuggestionField
   include Mongoid::Timestamps
 
   #associations
-  embedded_in :suggestion_poll
+  embedded_in :poll
   #attr_accessible
   attr_accessible :fields
 
