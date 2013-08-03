@@ -34,5 +34,7 @@ class PollsController < ApplicationController
 
   def update
     @poll = Poll.find(params[:id])
+    @poll.answers.create(:choice => params[:option_field], user_id: current_user.id)
+    redirect_to :polls, :notice => "Your vote is submitted."
   end
 end
