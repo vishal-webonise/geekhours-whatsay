@@ -16,10 +16,10 @@
         = f.check_box :multiple_ans, :checked => false
       -#%input{:type => "text", :placeholder=>"Option 1"}
       = f.fields_for :field_options do |options|
-        = options.text_field :option1,:placeholder=>"Option 1"
+        -#= options.text_field :option1,:placeholder=>"Option 1"
       .addButton
         -#%input{:type => "text", :placeholder=>"Option 2"}
-        = options.text_field :option2,:placeholder=>"Option 2"
+        -#= options.text_field :option2,:placeholder=>"Option 2"
         %div
           %button.small.button.success.right{:title => "Add More"}
             +

@@ -1,6 +1,8 @@
 class Poll
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Rateable
+  RATING_RANGE = (1..5)
 
   #associations
   belongs_to :user
@@ -23,4 +25,9 @@ class Poll
 
   #validations
   validates :topic, :presence => true
+
+  def user_mark(rater)
+    r = self.rating_marks.where(:rater_id => rater.id, :rater_class => rater.class.to_s).first
+    r ? r.mark : nil
+  end
 end
