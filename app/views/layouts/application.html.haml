@@ -12,17 +12,20 @@
     / Set the viewport width to device width for mobile
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : "Untitled"
-    = stylesheet_link_tag "application", "style"
+    = stylesheet_link_tag "application", "style", "foundation"
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
   %body
     %header
-      %a{:href => "#"}
-        = image_tag("logo.png")
-    - flash.each do |name, msg|
-      %div{"data-alert" => "true", :class => "alert-box #{name == :notice ? "success" : "alert"}",:id => "notice_box"}
-        %a.close{:href => "#"} &times;
-        = msg if msg.is_a?(String)
-
-    = yield
+      .row
+        %large-12.columns
+          %a{:href => "#"}
+            = image_tag("logoOLD.png")
+    .row
+      %large-12.columns
+      - flash.each do |name, msg|
+        %div{"data-alert" => "true", :class => "alert-box #{name == :notice ? "success" : "alert"}",:id => "notice_box"}
+          %a.close{:href => "#"} &times;
+          = msg if msg.is_a?(String)
+      = yield
     = javascript_include_tag "application"
