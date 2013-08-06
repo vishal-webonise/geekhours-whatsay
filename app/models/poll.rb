@@ -31,6 +31,10 @@ class Poll
   #callbacks
   #after_update :save_count
 
+  def get_by_id(id)
+    Poll.where(:_id=>id).first
+  end
+
   def user_mark(rater)
     r = self.rating_marks.where(:rater_id => rater.id, :rater_class => rater.class.to_s).first
     r ? r.mark : nil

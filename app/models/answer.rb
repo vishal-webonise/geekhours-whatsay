@@ -8,7 +8,7 @@ class Answer
   attr_accessible :choice, :user_id
 
   #fields
-  field :choice,    :type => String
+  field :choice,    :type => Array, :default=>[]
   field :user_id,   :type => BSON::ObjectId
 
   #callbacks

@@ -6,9 +6,13 @@
       %p
         %strong Description:
         #{@poll.description}
-      - option_type = @poll.multiple_ans ? "check_box" : "radio_button"
-      - @poll.field_options.each do |option|
+      - @poll.field_options.each_with_index do |option,index|
         %label{:for => ""}
-          = send("#{option_type}_tag", :option_field, option)
-          #{option}
+          - unless @poll.multiple_ans
+            = radio_button_tag(:answers, option)
+            #{option}
+          - else
+            = check_box("answers","#{index}",{},"#{option}", 0)
+            #{option}
+
       = f.submit "Vote!", class: "button"
