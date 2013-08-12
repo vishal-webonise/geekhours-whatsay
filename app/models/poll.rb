@@ -28,10 +28,13 @@ class Poll
   #validations
   validates :topic, :presence => true
 
+
+  scope :answered_by, ->(user,poll) { where("answers.user_id" => user.id,:_id=>poll.id) }
+
   #callbacks
   #after_update :save_count
 
-  def get_by_id(id)
+  def self.get_by_id(id)
     Poll.where(:_id=>id).first
   end
 
@@ -46,6 +49,10 @@ class Poll
 
   def self.latest_polls
     Poll.all.sort_by{|poll| poll.updated_at.to_i}
+  end
+
+  def answered_by?(user)
+    Poll.answered_by(user,self).to_a.size >= 1
   end
   # def save_count
   #   write_attribute(:answers_count, self.answers.size) 
