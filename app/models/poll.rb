@@ -52,7 +52,7 @@ class Poll
   end
 
   def answered_by?(user)
-    Poll.answered_by(user,self).to_a.size >= 1
+    Poll.where("answers.user_id" => user.id).to_a.size >= 1
   end
   # def save_count
   #   write_attribute(:answers_count, self.answers.size) 
